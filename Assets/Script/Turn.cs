@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class Turn : MonoBehaviour
 {
-    private Camera _camera;
+    private Camera mainCamera;
+    private int distanceFromCamera;
     // Start is called before the first frame update
     void Start()
     {
-        _camera = Camera.main;
+        mainCamera = Camera.main;
+        distanceFromCamera = 100;
     }
 
     // Update is called once per frame
     void Update()
     {
         RaycastHit hit;
-        Ray ray = _camera.ScreenPointToRay (Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay (Input.mousePosition);
 
-        if (Physics.Raycast (ray, out hit, 100))
+        if (Physics.Raycast (ray, out hit, distanceFromCamera))
         {
-            Vector3 point = hit.point;
-            point.y = transform.position.y;
-            transform.LookAt (point);
+            Vector3 lookingAtPoint = GetLookingAtPoint (hit.point);
+            transform.LookAt (lookingAtPoint);
         }
+    }
+
+    private Vector3 GetLookingAtPoint(Vector3 hitPoint) {
+        Vector3 lookingAtPoint = hitPoint;
+        lookingAtPoint.y = transform.position.y;
+        return lookingAtPoint;
     }
 }

@@ -25,20 +25,38 @@ public class Fire : MonoBehaviour
 
     private void OnMousePress(int button)
     {
-        _current += Time.deltaTime;
-        if (_current < _interval)
+        if (!ReadyToFire ()) {
             return;
+        }
 
-        switch(button)
+        switch((KeyCode)button)
         {
-            case 0:
+            case KeyCode.Mouse0:
                 {
-                    GameObject bullet = Instantiate (_bullet, _shoot.position, Quaternion.identity);
-                    bullet.transform.rotation = transform.rotation;
-                    OnFire (10);
-                    _current = 0;
+                    Shoot ();
                 }
                 break;
         }
+
+        ResetTimer ();
+    }
+
+    private bool ReadyToFire() {
+        _current += Time.deltaTime;
+        if (_current < _interval) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private void Shoot() {
+        GameObject bullet = Instantiate (_bullet, _shoot.position, Quaternion.identity);
+        bullet.transform.rotation = transform.rotation;
+        OnFire (10);
+    }
+
+    private void ResetTimer() {
+        _current = 0;
     }
 }

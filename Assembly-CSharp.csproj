@@ -10,7 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{C66A1055-8F68-6547-3067-9631C3FB1E38}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -62,12 +63,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Concept3\Character.cs" />
+    <Compile Include="Assets\Script\Concept3\FollowCmd.cs" />
+    <Compile Include="Assets\Script\Concept3\GunBase.cs" />
+    <Compile Include="Assets\Script\Concept3\Monster.cs" />
+    <Compile Include="Assets\Script\Concept3\MoveCmd.cs" />
+    <Compile Include="Assets\Script\Concept3\Rifle.cs" />
+    <Compile Include="Assets\Script\Concept3\SceneObject.cs" />
+    <Compile Include="Assets\Script\Concept3\Shotgun.cs" />
+    <Compile Include="Assets\Script\Concept3\Tool.cs" />
+    <Compile Include="Assets\Script\Concept3\TurnCmd.cs" />
     <Compile Include="Assets\Script\Fire.cs" />
-    <Compile Include="Assets\Script\Fly.cs" />
     <Compile Include="Assets\Script\Follow.cs" />
+    <Compile Include="Assets\Script\FowardMove.cs" />
     <Compile Include="Assets\Script\InputHandler.cs" />
-    <Compile Include="Assets\Script\Move.cs" />
-    <Compile Include="Assets\Script\PickUp.cs" />
+    <Compile Include="Assets\Script\KeyboardMove.cs" />
     <Compile Include="Assets\Script\Turn.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/project/unity/TopdownShooting/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
